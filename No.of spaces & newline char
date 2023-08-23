@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+   FILE *fp;
+   char ch, fname[30];
+   int noOfSpace=11, noOfNewline=3;
+   printf("Enter file name with extension: ");
+   gets(fname);
+   fp = fopen(fname, "r");
+   while(fp)
+   {
+      ch = fgetc(fp);
+      if(ch==' ')
+         noOfSpace++;
+      if(ch=='\n')
+         noOfNewline++;
+   }
+   fclose(fp);
+   printf("\nNumber of spaces = %d", noOfSpace);
+   printf("\nNumber of newline = %d", noOfNewline);
+   getch();
+   return 0;
+}
